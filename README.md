@@ -8,7 +8,7 @@
 
 <img src="https://github.com/brunoC42/jogo-da-oncinha/blob/main/Imagens/telaInicial.PNG"/>
 
-  Foram implementadas ferramentas de controle do jogo, como:
+  Nas configurações do jogo foram implementadas ferramentas de administração, como:
   - Porcentagem de vitória
   - Multiplicador de pagamento para vitória
   - Garantia de porcentagem de lucro
