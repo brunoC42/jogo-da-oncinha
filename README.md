@@ -18,6 +18,7 @@
   **Este projeto tem objetivo educacional apenas.**
 
   Tecnoligias utilizadas:
-  [](https://img.shields.io/badge/Delphi-B22222?style=for-the-badge&logo=delphi&logoColor=white)
+  
+  ![](https://img.shields.io/badge/Delphi-B22222?style=for-the-badge&logo=delphi&logoColor=white)
 
   Imagens utilizadas no projeto: [Flaticon](flaticon.com)
