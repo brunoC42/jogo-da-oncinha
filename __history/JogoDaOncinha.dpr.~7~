@@ -1,0 +1,17 @@
+program JogoDaOncinha;
+
+uses
+  Vcl.Forms,
+  uFrmPrincipal in 'uFrmPrincipal.pas' {FrmPrincipal},
+  uFrmConfiguracao in 'uFrmConfiguracao.pas' {Form2},
+  uJogo in 'uJogo.pas';
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TFrmPrincipal, FrmPrincipal);
+  Application.CreateForm(TForm2, Form2);
+  Application.Run;
+end.
