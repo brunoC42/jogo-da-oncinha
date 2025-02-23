@@ -11446,20 +11446,6 @@ object FrmPrincipal: TFrmPrincipal
     Proportional = True
     Stretch = True
   end
-  object lbInfoCassino: TLabel
-    Left = 3
-    Top = 635
-    Width = 96
-    Height = 19
-    Caption = 'lbInfoCassino'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clBlack
-    Font.Height = -16
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-    Visible = False
-  end
   object pnlSaldo: TPanel
     Left = 0
     Top = 657

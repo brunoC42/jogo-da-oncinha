@@ -11,7 +11,6 @@ uses
 type
   TFrmPrincipal = class(TForm)
     lbSaldo: TLabel;
-    lbInfoCassino: TLabel;
     imgOnca: TImage;
     imgArara: TImage;
     imgPreguica: TImage;
@@ -50,8 +49,9 @@ type
     procedure Delay(MSec: Cardinal);
     procedure InicializarTimersAnimacaoImagem;
     procedure PararAnimacaoImagem(ATimer: TTimer; AImagem: TImage; AAnimalSorteado: Integer);
-    procedure AtualizarVisualizacaoInformacoes;
+    procedure AtualizarVisualizacaoSaldo;
     procedure AnimacaoVitoria(ASaldoAnterior, ASaldoNovo: Double);
+    procedure MostrarInformacoesCassino;
     function ProximoAnimalAnimacaoImagem(AImagem: TImage; AAnimalAtual: Integer): Integer;
   end;
 
@@ -108,7 +108,7 @@ begin
   Randomize;
 
   FJogo := TJogo.GetInstancia;
-  AtualizarVisualizacaoInformacoes;
+  AtualizarVisualizacaoSaldo;
 end;
 
 procedure TFrmPrincipal.FormKeyDown(Sender: TObject; var Key: Word;
@@ -117,7 +117,7 @@ begin
   if Key = VK_F10 then
   begin
     FJogo.AdicionarSaldoJogador(StrToFloatDef(InputBox('Adicionar Saldo', 'Valor', EmptyStr), 0));
-    AtualizarVisualizacaoInformacoes;
+    AtualizarVisualizacaoSaldo;
   end;
 
   if Key = VK_F12 then
@@ -132,7 +132,7 @@ begin
   end;
 
   if Key = VK_F11 then
-    lbInfoCassino.Visible := not(lbInfoCassino.Visible);
+    MostrarInformacoesCassino;
 end;
 
 procedure TFrmPrincipal.InicializarTimersAnimacaoImagem;
@@ -173,11 +173,26 @@ begin
     if FJogo.GetGanhou then
       AnimacaoVitoria(LSaldoAntesJogo, FJogo.GetSaldoJogador);
 
-    AtualizarVisualizacaoInformacoes;
+    AtualizarVisualizacaoSaldo;
   finally
     spbApostar5.Enabled  := True;
     spbApostar10.Enabled := True;
   end;
+end;
+
+procedure TFrmPrincipal.MostrarInformacoesCassino;
+var
+  LPorcentagemVitorias: Double;
+begin
+  LPorcentagemVitorias := 0;
+
+  if FJogo.GetPartidas > 0 then
+    LPorcentagemVitorias := (FJogo.GetVitorias/FJogo.GetPartidas) * 100;
+
+  ShowMessage('Saldo Cassino: R$' + FormatFloat('0.00', FJogo.GetSaldoCassino) + sLineBreak +
+              'Partidas Jogadas: ' + IntToStr(FJogo.GetPartidas) + sLineBreak +
+              'Vitórias Jogador: ' + IntToStr(FJogo.GetVitorias) + sLineBreak +
+              'Porcentagem Vitórias: ' + FormatFloat('0.00', LPorcentagemVitorias) + '%');
 end;
 
 procedure TFrmPrincipal.PararAnimacaoImagem(ATimer: TTimer; AImagem: TImage; AAnimalSorteado: Integer);
@@ -208,17 +223,9 @@ begin
   Jogar(10);
 end;
 
-procedure TFrmPrincipal.AtualizarVisualizacaoInformacoes;
-var
-  LPorcentagemVitorias: Double;
+procedure TFrmPrincipal.AtualizarVisualizacaoSaldo;
 begin
-  LPorcentagemVitorias := 0;
-
-  if FJogo.GetPartidas > 0 then
-    LPorcentagemVitorias := (FJogo.GetVitorias/FJogo.GetPartidas) * 100;
-
   lbSaldo.Caption := 'Saldo R$'+FormatFloat('0.00', FJogo.GetSaldoJogador);
-  lbInfoCassino.Caption := 'Saldo Cassino: R$'+FormatFloat('0.00', FJogo.GetSaldoCassino)+ '; Vitórias Jogador: '+IntToStr(FJogo.GetVitorias)+'; Porcentagem Vitórias: '+FormatFloat('0.00', LPorcentagemVitorias)+'%';
 end;
 
 procedure TFrmPrincipal.Delay(MSec: Cardinal);
