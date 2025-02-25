@@ -15,7 +15,6 @@
 
 <img src="https://github.com/brunoC42/jogo-da-oncinha/blob/main/Imagens/telaConfiguracao.PNG"/>
   
-  **Este projeto tem objetivo educacional apenas.**
 
   Tecnologias utilizadas:
   
