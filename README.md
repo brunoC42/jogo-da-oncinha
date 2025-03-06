@@ -16,7 +16,7 @@
 <img src="https://github.com/brunoC42/jogo-da-oncinha/blob/main/Imagens/telaConfiguracao.PNG"/>
   
 
-  ### Tecnologias utilizadas
+  Tecnologias utilizadas:
   
   ![](https://img.shields.io/badge/Delphi-B22222?style=for-the-badge&logo=delphi&logoColor=white)
 
