@@ -1,4 +1,4 @@
-# Jogo da Onçinha <img src="https://github.com/brunoC42/jogo-da-oncinha/blob/main/Imagens/jaguar.png" height="40"/>
+# Jogo da Oncinha <img src="https://github.com/brunoC42/jogo-da-oncinha/blob/main/Imagens/jaguar.png" height="40"/>
   Jogo da Oncinha é um jogo de cassino básico inspirado em máquinas de caça-níqueis clássicas. O projeto foi desenvolvido para servir de material didático em aulas de programação.
   
   ### Comandos básicos
